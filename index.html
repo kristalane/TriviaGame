@@ -19,16 +19,24 @@
             <div row class="game-container col-md-6">
                 <div class="questions"></div>
                 <div class="answers">
-                  <input type="Radio" Name="one" Value="">
-                  <input type="Radio" Name="two" Value="">
-                  <input type="Radio" Name="three" Value="">
-                  <input type="Radio" Name="four" Value="">
+                  <button class = "answer-1"></button>
+                  <button class = "answer-2"></button>
+                  <button class = "answer-3"></button>
+                  <button class = "answer-4"></button>
                 </div>
             </div>
-            <div row class="score col-md-6">
-              <div class="correct">Correct: </div>
-              <div class="incorrect">Incorrect: </div>
-              <div class="unanswered">Unanswered: </div>
+            <div row class="answer-container col-md-6">
+              <div class="user-correct">Hurray; you're right! The correct answer is, in fact: </div>
+              <div class="user-incorrect">Bummer; you were wrong. The answer we were looking for is: </div>
+              <div class="unanswered">You ran out of time! I won't count it against you, but the answer was: </div>
+              <div class="correct-answer"></div>
+              <div class="image"></div>
+            </div>
+            <div row class="endGame col-md-6">
+              <div class="right">Correct: </div>
+              <div class="wrong">Incorrect: </div>
+              <div class="blank">Unanswered: </div>
+              <button id="restart">Play Again?</button>
             </div>
           </div>
       </div></center>
