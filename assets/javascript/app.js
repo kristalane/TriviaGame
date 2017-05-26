@@ -2,17 +2,6 @@
 $(document).ready(function(){
 
 
-// var questions = ["Which country has the most UNESCO World Heritage sites?", "Which country produced the most wine in 2016?", "Which country has hosted the Olympics the most times?", "Which is the world’s largest continental lake?", "How many ossuaries (ancient and medieval 'bone churches') still stand around the world?"];
-//
-// var answers = ["Italy", "France", "USA", "Baikal", "40"];
-
-// var otherOptions1 = ["China", "Spain", "France"];
-// var otherOptions2 = ["Italy", "USA", "Spain"];
-// var otherOptions3 = ["United Kingdom", "Japan", "France"];
-// var otherOptions4 = ["Superior", "Tanganyika", "Michigan"]
-// var otherOptions5 = ["27", "34", "13"];
-
-
 var triviaArr = [
   {
     question: "Which country has the most UNESCO World Heritage sites?",
@@ -47,16 +36,17 @@ var triviaArr = [
 ];
 
 triviaArr.forEach(function(data){
+  debugger;
   data.answer = data.otherAnswers[data.correctAnswer - 1];
 });
 
 var questionInterval;
-var currentQuestionIndex = 0;
+var currentQuestionIndex;
 var currentQuestionData;
-var correct = 0;
-var incorrect = 0;
-var unanswered = 0;
-var time = 30;
+var correct;
+var incorrect;
+var unanswered;
+var time;
 
 // initial state of game
   function resetGame(){
@@ -65,11 +55,6 @@ var time = 30;
     $(".answer-container").hide();
     $(".endGame").hide();
     $("#start").show();
-    correct = 0;
-    incorrect = 0;
-    unanswered = 0;
-    time = 30;
-    currentQuestionIndex = 0;
   };
   resetGame();
 
@@ -84,6 +69,11 @@ var time = 30;
     $(".timer").show();
     $(".game-container").show();
     time = 30;
+    correct = 0;
+    incorrect = 0;
+    unanswered = 0;
+    time = 30;
+    currentQuestionIndex = 0;
     questionInterval = setInterval(count, 1000);
     currentQuestionData = triviaArr[currentQuestionIndex];
     displayQuestion();
@@ -110,21 +100,18 @@ var time = 30;
       $(".user-incorrect").hide();
       $(".unanswered").hide();
       correct++;
-
     }
     else if (buttonNumber === 0){
       $(".unanswered").show();
       $(".user-incorrect").hide();
       $(".user-correct").hide();
       unanswered++;
-
     }
     else {
       $(".user-incorrect").show();
       $(".unanswered").hide();
       $(".user-correct").hide();
       incorrect++;
-      
     }
     displayAnswer();
   };
@@ -138,7 +125,7 @@ var time = 30;
       buttonClicked(0);
       // calling the buttonClicked function as if unanswered = wrong.
     }
-  }
+  };
 
   // display the answer and image for a short period of time.
   function displayAnswer(){
@@ -160,47 +147,21 @@ var time = 30;
       }
       else {
         $(".timer").show();
-        time = 10;
+        time = 30;
         questionInterval = setInterval(count, 1000);
         currentQuestionData = triviaArr[currentQuestionIndex];
         displayQuestion();
       }
-
   };
 
   function endGame() {
     $(".endGame").show();
     $(".game-container").hide();
-    $(".right").append(correct);
-    $(".wrong").append(incorrect);
-    $(".blank").append(unanswered);
+    $(".right").text("Correct: " + correct);
+    $(".wrong").text("Incorrect: " + incorrect);
+    $(".blank").text("Unanswered: " + unanswered);
     $("#restart").on('click', resetGame);
+
   };
 
 });
-
-
-// function to check and record the answer to a question
-  // function checkStatus() {
-  //   var selection;
-  //   if ($('input[Radio]:checked').length > 0) {
-  //     checkAnswer(selection);
-  //   }
-  //   else {
-  //     unanswered++;
-  //     $(".unanswered").text(unanswered);
-  //   }
-  //
-  //   function checkAnswer() {
-  //     // if (selection) is not in the answers array, add one to "incorrect". Else, add one to correct. (the inArray utility function returns the index when there is a match, or -1 when there is no match)
-  //     if ($.inArray(selection, answers) === -1) {
-  //       incorrect++;
-  //       $(".incorrect").text(incorrect);
-  //     }
-  //     else{
-  //       correct++;
-  //       $(".correct").text(correct);
-  //
-  //     }
-  //   }
-  // };
