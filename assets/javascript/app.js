@@ -36,7 +36,6 @@ var triviaArr = [
 ];
 
 triviaArr.forEach(function(data){
-  debugger;
   data.answer = data.otherAnswers[data.correctAnswer - 1];
 });
 

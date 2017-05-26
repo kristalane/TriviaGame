@@ -1,0 +1,54 @@
+
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2015/07/31/09/48/globe-868846_960_720.jpg");
+  background-size: 100%;
+  font-family: sans-serif;
+}
+
+#start {
+  background-color: blue;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 50px;
+}
+
+.timer {
+  font-size: 30px;
+  color: green;
+  font-weight: bold;
+}
+
+.game-container {
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.answer-container {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.user-correct {
+  color: green;
+}
+
+.user-incorrect {
+  color: red;
+}
+
+.unanswered {
+  color: red;
+}
+
+.endGame {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#restart {
+  padding: 20px;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
