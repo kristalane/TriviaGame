@@ -128,7 +128,7 @@ var time;
 
   // display the answer and image for a short period of time.
   function displayAnswer(){
-    setTimeout(nextQuestion, 5000);
+    setTimeout(nextQuestion, 7000);
     $(".game-container").hide();
     $(".timer").hide();
     $(".correct-answer").text(currentQuestionData.answer);
